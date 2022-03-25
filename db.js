@@ -5,30 +5,43 @@ const mongoose = require('mongoose'),
 
 const User = new mongoose.Schema({
   // username, password
-  lists:  [{ type: mongoose.Schema.Types.ObjectId, ref: 'List' }]
+  face_condition:  [{ type: mongoose.Schema.Types.ObjectId, ref: 'type' }]
 });
 
-const Item = new mongoose.Schema({
-	name: {type: String, required: true},
-	quantity: {type: Number, min: 1, required: true},
-	checked: {type: Boolean, default: false, required: true}
-}, {
-	_id: true
+const type = new mongoose.Schema({
+	skin_type: {type: String, required: true},
+	key_word: [{type: mongoose.Schema.Types.ObjectId, required: true}],
+	
 });
 
 
-const List = new mongoose.Schema({
-  user: {type: mongoose.Schema.Types.ObjectId, ref:'User'},
+const Foundation = new mongoose.Schema({
   name: {type: String, required: true},
-	createdAt: {type: Date, required: true},
-	items: [Item]
+  brand: {type: String, required: true},
+  character : [{type: mongoose.Schema.Types.ObjectId, required: true}],
 });
+
+const Characteristic = new mongoose.Schema({
+
+	character: [{type: mongoose.Schema.Types.ObjectId, required: true}],
+});
+
+const Requirement = new mongoose.Schema({
+	username: {type: String, ref: "User"},
+	occasion: {type: String, required: true},
+	season : [{type: String, required: true}],
+  });
 
 
 User.plugin(passportLocalMongoose);
 List.plugin(URLSlugs('name'));
 
 mongoose.model('User', User);
-mongoose.model('List', List);
-mongoose.model('Item', Item);
-mongoose.connect('mongodb://localhost/grocerydb');
+mongoose.model('Type', type);
+mongoose.model('Foundation', Foundation);
+mongoose.model('Characteristic', Characteristic);
+mongoose.model('Requirement', Requirement);
+
+
+mongoose.connect('mongodb://localhost/foundationdb');
+
