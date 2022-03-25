@@ -11,7 +11,7 @@ Foundation Picker is a web app that will allow users to enter their needs of fou
 
 ## Data Model
 
-(__TODO__: a description of your application's data and their relationships to each other_) 
+
 
 The application will store Users, Skin Conditions, Foundations, and Characteristic of Foundations
 
@@ -22,7 +22,7 @@ The application will store Users, Skin Conditions, Foundations, and Characterist
 * each foundation can have multiple characteristics
 * at the end, the best matches would be the foundation that have the characteristics which can fulfill all the users' condition(skin, season and ocassion)
 
-(__TODO__: sample documents_)
+
 
 An Example User:
 
@@ -75,7 +75,6 @@ An Example Requirement:
 
 ## [Link to Commented First Draft Schema](db.js) 
 
-(__TODO__: create a first draft of your Schemas in db.js and link to it_)
 
 ## Wireframes
 
