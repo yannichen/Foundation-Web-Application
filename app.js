@@ -1,22 +1,15 @@
-
 require('./db');
-require('./auth');
 
 const express = require('express');
 const path = require('path');
-
-const routes = require('./routes/index');
-const list = require('./routes/list');
-const listItem = require('./routes/list-item');
+const bodyParser = require('body-parser');
+const passport = require(passport);
 
 const app = express();
 
-// view engine setup
-// app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
-
 // enable sessions
 const session = require('express-session');
+const passport = require('passport');
 const sessionOptions = {
     secret: 'secret cookie thang (store this elsewhere!)',
     resave: true,
@@ -24,18 +17,22 @@ const sessionOptions = {
 };
 app.use(session(sessionOptions));
 
-app.use(express.urlencoded({ extended: false }));
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'hbs');
+
+// passport setup
+app.use(passport.initialize());
+app.use(passport.session());
+
+// body parser setup
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// serve static files
 app.use(express.static(path.join(__dirname, 'public')));
 
-
-// make user data available to all templates
-app.use((req, res, next) => {
-  res.locals.user = req.user;
-  next();
+app.get('/', (req, res) => {
+  res.render('index');
 });
-
-app.use('/', routes);
-app.use('/list', list);
-app.use('/list-item', listItem);
 
 app.listen(3000);
