@@ -28,7 +28,7 @@ An Example User:
 
 ```javascript
 {
-  username: "shannonshopper",
+  username: "the one",
   hash: // a password hash,
   face_condition: // an array of the input of face conditions that user enters,
   skin_type://the skin type matched to the user that stored in the user profile
