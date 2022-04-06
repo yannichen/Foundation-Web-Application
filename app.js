@@ -14,6 +14,26 @@ const app = express();
 
 const publicPath = path.resolve(__dirname, "public");
 app.use(express.static(publicPath));
+/*
+const passport = require('passport');
+const session = require('express-session');
+const UserDetails = require('./userDetails');
+const routes = require('./routes/router');
+require('dotenv').config();
+
+// Set up session
+app.use(
+  session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: true,
+  })
+);
+
+// Set up Passport
+app.use(passport.initialize());
+app.use(passport.session());
+*/
 
 // enable sessions
 //const session = require('express-session');
@@ -84,3 +104,6 @@ app.post('/', (req, res) => {
 
 
 app.listen(process.env.PORT || 3000)
+
+
+//https://blog.logrocket.com/using-passport-authentication-node-js/
