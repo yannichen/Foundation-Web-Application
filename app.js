@@ -5,6 +5,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const res = require('express/lib/response');
+const { redirect } = require('express/lib/response');
 //const User = mongoose.model('user');
 const router = express.Router();
 
@@ -71,6 +72,9 @@ app.post('/', (req, res) => {
 	review.save(function(err, savedReview){
 		if (err){
 			console.log('error');
+		}
+		else{
+			res.redirect('/');
 		}
 		
 	});
