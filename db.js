@@ -1,11 +1,12 @@
 const mongoose = require('mongoose'),
-	URLSlugs = require('mongoose-url-slugs'),
-  passportLocalMongoose = require('passport-local-mongoose');
+URLSlugs = require('mongoose-url-slugs'),
+passportLocalMongoose = require('passport-local-mongoose');
 
-
+/*
 const User = new mongoose.Schema({
   // username, password
-  face_condition:  [{ type: mongoose.Schema.Types.ObjectId, ref: 'type' }]
+  Dry_oil:{type:String, required: true},
+  Sensitive_nonSensitive: {type:String, required: true},
 });
 
 const type = new mongoose.Schema({
@@ -27,21 +28,36 @@ const Characteristic = new mongoose.Schema({
 });
 
 const Requirement = new mongoose.Schema({
-	username: {type: String, ref: "User"},
+	username: {type: String, ref: "user"},
 	occasion: {type: String, required: true},
 	season : [{type: String, required: true}],
   });
-
-
-User.plugin(passportLocalMongoose);
-List.plugin(URLSlugs('name'));
-
+*/
+  const Review = new mongoose.Schema({
+    brand:{type:String, required: true},
+    FoundationName: {type:String, required: true},
+    skintype:{type:String, required: true},
+    review:{type:String, required: true},
+  })
+  mongoose.model('Review', Review);
+/*
 mongoose.model('User', User);
 mongoose.model('Type', type);
 mongoose.model('Foundation', Foundation);
 mongoose.model('Characteristic', Characteristic);
 mongoose.model('Requirement', Requirement);
+*/
+const uri = "mongodb+srv://yanni_chen:Cyn03222000@final-project.a836y.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+const mongooseOpts = {
+  useNewUrlParser: true,  
+  useUnifiedTopology: true
+};
 
-
-mongoose.connect('mongodb://localhost/foundationdb');
+mongoose.connect(uri, mongooseOpts, (err) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log('connected to database'); 
+  }
+});
 

@@ -1,28 +1,21 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
 <head>
-<title></title>
-<link rel='stylesheet' href='/stylesheets/style.css'>
+		<title></title>
+		<link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed" rel="stylesheet">
+
+		<link rel="stylesheet" href="/stylesheets/style.css" type="text/css" media="screen" title="no title" charset="utf-8">
 </head>
 <body>
-<div id="wrapper">
-<div id="hd">
-{{#if user}}
-<div>Logged in as: {{user.username}} (<a href="/logout">Logout</a>)
-</div> 
-{{/if}}
-	<h1>Shoppy Shoperson</h1>
-</div>
-<div id="bd">
-{{{body}}}
-</div>
-<div id="ft">
-{{#if user}}
-	<a href="/">Home</a> | 
-	<a href="/list/">All Lists</a> | 
-	<a href="/list/create">Create a New List</a>
-{{/if}}
-</div>
+<style>
+</style>
+<div id="container">
+	<header>
+			<h1><span>Foundation</span>Reviews</h1>
+			<h3>An community for foundations.</h3>
+	</header>
+	<div id="content">
+		{{{ body }}}
+	</div>
 </div>
 </body>
 </html>

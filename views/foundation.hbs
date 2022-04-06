@@ -1,0 +1,34 @@
+<h2>Add Your Unique Foundation Experience Review</h2>
+<form method="POST" action="">
+  Brand:<input type ="string" name="brand"><br>
+  Name: <input type ="string" name="FoundationName"><br>
+  Your Skin Type:<input type ="string" name="skintype"><br>
+  Your Review:<input type ="string" name="review"><br>
+<input type ="submit">
+</form>
+
+<h2 class = "review">Reviews</h2>
+
+<form method="GET" action="/">
+Brand:<input type ="string" name="brand">
+Foundation Name: <input type ="string" name="FoundationName">
+<input type ="submit">
+</form>
+
+<table>
+<tr>
+    <th>Brand</th>
+    <th>Name</th>
+    <th>User Skin Type</th>
+	<th>Review</th>
+  </tr>
+{{#each reviews as |review|}}
+<tr>
+  <td>{{review.brand}}</td>
+  <td>{{review.FoundationName}}</td>
+  <td>{{review.skintype}}</td>
+  <td>{{review.review}}</td>
+</tr>
+{{/each}}
+</table>
+
