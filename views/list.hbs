@@ -1,0 +1,29 @@
+
+
+<form method="GET" action="">
+Your Skin Type:<input type ="string" name="SuitableSkin">
+<input type ="submit">
+</form>
+
+<table>
+  <tr>
+    <th>Brand</th>
+    <th>Foundation Name</th>
+    <th>Suitable Skin Type</th>
+  </tr>
+{{#each foundations as |foundation|}}
+<tr>
+  <td>{{foundation.brand}}</td>
+  <td>{{foundation.FoundationName}}</td>
+  <td>{{foundation.SuitableSkin}}</td>
+
+</tr>
+{{/each}}
+</table>
+
+<form method="POST" action="/list">
+  Brand:<input type ="string" name="brand"><br>
+  Name: <input type ="string" name="FoundationName"><br>
+  Suitable Skin Type:<input type ="string" name="SuitableSkin"><br>
+<input type ="submit">
+</form>

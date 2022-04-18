@@ -6,52 +6,20 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const res = require('express/lib/response');
 const { redirect } = require('express/lib/response');
-//const User = mongoose.model('user');
 const router = express.Router();
 
 const Review = mongoose.model('Review');
+const Foundation = mongoose.model('Foundation')
 const app = express();
 
 const publicPath = path.resolve(__dirname, "public");
 app.use(express.static(publicPath));
-/*
-const passport = require('passport');
-const session = require('express-session');
-const UserDetails = require('./userDetails');
-const routes = require('./routes/router');
-require('dotenv').config();
-
-// Set up session
-app.use(
-  session({
-    secret: process.env.SECRET,
-    resave: false,
-    saveUninitialized: true,
-  })
-);
-
-// Set up Passport
-app.use(passport.initialize());
-app.use(passport.session());
-*/
-
-// enable sessions
-//const session = require('express-session');
-//const passport = require('passport');
-//const sessionOptions = {
-   // secret: 'secret cookie thang (store this elsewhere!)',
-   // resave: true,
-    //  saveUninitialized: true
-//};
-//app.use(session(sessionOptions));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
-// passport setup
-//app.use(passport.initialize());
-//app.use(passport.session());
+
 
 // body parser setup
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -62,7 +30,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use('/', router);
-
+app.get('/foundation',(req, res) => {
+	res.redirect('/');
+});
 app.get('/', (req, res) => {
 
 	const query = {};
@@ -75,7 +45,7 @@ app.get('/', (req, res) => {
 
 
 
-Review.find(query, (err, reviews) => {
+	Review.find(query, (err, reviews) => {
 		res.render('foundation', {reviews});
 	});
 	
@@ -88,7 +58,6 @@ app.post('/', (req, res) => {
     skintype: req.body.skintype,
     review: req.body.review
   });
-  console.log(review);
 	review.save(function(err, savedReview){
 		if (err){
 			console.log('error');
@@ -103,7 +72,41 @@ app.post('/', (req, res) => {
 
 
 
+
+
+app.get('/list', (req, res) => {
+	const query = {};
+	if(req.query.SuitableSkin){
+		query.SuitableSkin = req.query.SuitableSkin;
+	}
+	Foundation.find(query, (err, foundations) => {
+		res.render('list', {foundations});
+
+	});
+	
+}); 
+
+app.post('/list', (req, res) => {
+  	const foundation = new Foundation({
+   		brand: req.body.brand,
+    	FoundationName: req.body.FoundationName,
+		SuitableSkin:req.body.SuitableSkin
+ 	});
+  	console.log(foundation)
+
+	foundation.save(function(err, savedfoundation){
+		if (err){
+			console.log('error');
+		}
+		else{
+			res.redirect('/list');
+		}
+		
+	});
+  
+});
+
+
 app.listen(process.env.PORT || 3000)
 
 
-//https://blog.logrocket.com/using-passport-authentication-node-js/
