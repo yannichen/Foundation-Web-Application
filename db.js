@@ -21,6 +21,7 @@ mongoose.model('Foundation', Foundation)
 
 
 
+
 const uri = "mongodb+srv://yanni_chen:Cyn03222000@final-project.a836y.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 const mongooseOpts = {
   useNewUrlParser: true,  
