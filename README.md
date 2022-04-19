@@ -79,12 +79,12 @@ An Example Review:
 ## Research Topics
 
 * (2 points) Heroku + MongoDB (finished)
-* (2 points) Use tailwind CSS framework throughout site
+* (2 points) Use tailwind CSS framework throughout site (finish researching, need time to design and apply to site)
     * use a reasonable of customization of the framework
     * make the site beautiful and attractive
-* (3 points)  Perform client side form validation using a JavaScript library
+* (3 points)  Perform client side form validation using a JavaScript library(still on research)
     * if you want to add foundation that already exists in the list, an error message will appear in the dom
-* (3 points) Unit testing with JavaScript
+* (3 points) Unit testing with JavaScript (finished reserach, gonna run test after entire project)
     * jasmine
     * mocha 
     * Jest
