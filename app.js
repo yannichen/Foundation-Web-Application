@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-
+//add or find review here
 app.use('/', router);
 app.get('/foundation',(req, res) => {
 	res.redirect('/');
@@ -72,7 +72,7 @@ app.post('/', (req, res) => {
 
 
 
-
+//add foundation to list 
 
 app.get('/list', (req, res) => {
 	const query = {};
@@ -106,6 +106,7 @@ app.post('/list', (req, res) => {
   
 });
 
+//test your skin here
 
 app.listen(process.env.PORT || 3000)
 

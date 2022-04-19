@@ -78,8 +78,8 @@ An Example Review:
 
 ## Research Topics
 
-* (2 points) Heroku + MongoDB
-* (2 points) Use a CSS framework throughout site
+* (2 points) Heroku + MongoDB (finished)
+* (2 points) Use tailwind CSS framework throughout site
     * use a reasonable of customization of the framework
     * make the site beautiful and attractive
 * (3 points)  Perform client side form validation using a JavaScript library

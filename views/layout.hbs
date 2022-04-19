@@ -1,22 +1,22 @@
 <!DOCTYPE html>
+<html>
 <head>
-		<title></title>
-		<link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed" rel="stylesheet">
 
-		<link rel="stylesheet" href="/stylesheets/style.css" type="text/css" media="screen" title="no title" charset="utf-8">
+  	<meta charset="UTF-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdn.tailwindcss.com"></script>
+	<link href="/views/style.css" rel="stylesheet">
 </head>
-<body>
-    
-	
+<body class="bg-violet-200"> 
 		<header>
-			<h1><span>Foundation</span>Lookbook</h1>
-			<h3>An community for foundations.</h3>
+			<h1 class="text-center font-serif text-4xl">Foundation Lookbook</h1>
+			<h3 class="text-right mr-12 font-serif text-2xl">  An community for foundations.</h3>
 
 		</header>
-	<div class="nav">
-	<a href="/foundation">Foundation Reviews</a>	
-    <a href="/list">Foundation List</a>
-    <a href="/test">Test Your Skin Type</a>
+	<div class="text-right text-lg font-serif text-purple-400" >
+	<a href="/foundation" class="overline ml-1 mr-4 hover:text-purple-500">Foundation Reviews</a>	
+    <a href="/list" class="overline mr-4 hover:text-purple-600">Foundation List</a>
+    <a href="/test" class="overline mr-4 hover:text-purple-700">Test Your Skin Type</a>
     </div>
 	<div id="content">
 		{{{ body }}}
