@@ -39,8 +39,8 @@ app.get('/', (req, res) => {
 	if(req.query.brand){
 		query.brand = req.query.brand;
 	}
-	if(req.query.foundationName){
-		query.foundationName = req.query.foundationName;
+	if(req.query.FoundationName){
+		query.FoundationName = req.query.FoundationName;
 	}
 
 
