@@ -1,0 +1,18 @@
+<p class="text-center underline decoration-indigo-500 text-xl">Test Your Skin Type Here</p>
+<p class="text-center">To answer each question, please follow the instruction to enter numbers </p>
+<br></br>
+
+<form method="GET" action="" class="text-center">
+How often do you face feel tight and dry (1-never 2-sometimes 3-often): <output name="range1value1" for="tightness" >never</output><input type ="range" name="tightness" min="1" max="3" step="1" >
+<output name="range1value" for="tightness" >often</output>
+<br></br>
+Do you often feel face with excessive shine? (Yes-1 No-2):<input type ="number" name="shine">
+<br></br>
+Do you feel your T-zone is with excessive oil? (Yes-1 No-2) :<input type ="number" name="tzone">
+
+<div>{{ error }} </div>
+<br></br>
+<button type="submit" class="text-white bg-indigo-900 hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Test</button>
+</form>
+
+<div class="text-center">Your skin type is: {{ type }} </div>

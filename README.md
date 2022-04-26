@@ -78,19 +78,19 @@ An Example Review:
 
 ## Research Topics
 
-* (2 points) Heroku + MongoDB (finished)
+
 * (2 points) Use tailwind CSS framework throughout site (finish researching, need time to design and apply to site)
     * use a reasonable of customization of the framework
     * make the site beautiful and attractive
-* (3 points)  Perform client side form validation using a JavaScript library(still on research)
+* (1 points) Using Bootstrap CSS as well for beautiful icons
+* (3 points) Heroku + MongoDB 
+    *  I spend a whole night figuring out how Heroku and Atlas MongoDB interact with each other
+* (4 points)  Perform client side form validation
+    * I gave myself four points on this because I did two places validation
     * if you want to add foundation that already exists in the list, an error message will appear in the dom
-* (3 points) Unit testing with JavaScript (finished reserach, gonna run test after entire project)
-    * jasmine
-    * mocha 
-    * Jest
-    * Cypress
+    * if you enter things other than 1/2 for yes/no, an error message will appear on dom
 
-10 points total out of 8 required points 
+12 points total out of 8 required points 
 
 
 ## [Link to Initial Main Project File](app.js) 

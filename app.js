@@ -86,6 +86,13 @@ app.get('/list', (req, res) => {
 	
 }); 
 
+//page for error message in DOM
+app.get('/dup', (req, res) => {
+	res.render('dup');
+
+	
+}); 
+
 app.post('/list', (req, res) => {
   	const foundation = new Foundation({
    		brand: req.body.brand,
@@ -96,8 +103,11 @@ app.post('/list', (req, res) => {
 
 	foundation.save(function(err, savedfoundation){
 		if (err){
+			res.redirect('/dup');
 			console.log('error');
+
 		}
+			
 		else{
 			res.redirect('/list');
 		}
@@ -106,7 +116,71 @@ app.post('/list', (req, res) => {
   
 });
 
+
 //test your skin here
+app.get('/test', (req, res) => {
+	const skinArray = [];
+	const skinArray2 = [];
+	let skin;
+	skinArray[0] = parseInt(req.query.tightness);
+	skinArray[1] = parseInt(req.query.shine);
+	skinArray[2] = parseInt(req.query.tzone);
+	//first use any of these built-in higher order functions
+	const initial = 0;
+	const sum = skinArray.reduce(
+		(previous, current) => previous + current,
+		initial
+	  );
+	console.log(sum);
+
+	skinArray2[0] = parseInt(req.query.shine);
+	skinArray2[1] = parseInt(req.query.tzone);
+	//second use any of these built-in higher order functions
+	const check = skinArray2.filter(response => response === 1 || response ===2);
+	console.log(check);
+	//use higher order function to add another value in order to test skin
+	const sum2Array = skinArray2.map(oil => oil*2);
+	const sum2 = sum2Array.reduce(
+		(previous, current) => previous + current,
+		initial
+	  );
+	console.log(sum2, "sum2")
+	console.log(req.query.tzone,"tzone")
+
+	if (check.length < 2 ){
+		error="please enter 1 or 2";
+		//console.log("jjj");
+		//print error message to user if they did not enter 1/2 for yes/no
+		res.render('test',{error: "if there is no test result show up, make sure you enter 1 or 2 for yes/no"});
+	}
+	else{
+		// sometimes tight, never oil
+		// 3,2,2 or 2,2,2
+		if (sum > 5 && sum2 == 12){
+			skin = "dry";
+		}
+		// when oil dominates
+		else if ( sum2 <= sum ){
+			skin = "oily";
+		}
+		else{
+			skin = "neutral";
+		}
+		res.render('test',{type: skin}) ;
+	}
+
+		//if(req.query.SuitableSkin){
+	//	query.SuitableSkin = req.query.SuitableSkin;
+	//}
+	//Foundation.find(query, (err, foundations) => {
+	//	res.render('list', {foundations});
+
+	//});
+	
+}); 
+
+
+
 
 app.listen(process.env.PORT || 3000)
 

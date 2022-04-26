@@ -1,6 +1,5 @@
-const mongoose = require('mongoose'),
-URLSlugs = require('mongoose-url-slugs'),
-passportLocalMongoose = require('passport-local-mongoose');
+const mongoose = require('mongoose');
+var uniqueValidator = require('mongoose-unique-validator');
 
 const Review = new mongoose.Schema({
     brand:{type:String, required: true},
@@ -11,10 +10,12 @@ const Review = new mongoose.Schema({
 
 const Foundation = new mongoose.Schema({
   brand:{type:String, required: true},
-  FoundationName: {type:String, required: true},
+  FoundationName: {type:String, required: true, unique: true,uniqueCaseInsensitive: true},
   SuitableSkin:{type:String, required: true},
 })
 
+// Apply the uniqueValidator plugin to userSchema.
+Foundation.plugin(uniqueValidator);
 
 mongoose.model('Review', Review);
 mongoose.model('Foundation', Foundation)
